@@ -1,0 +1,78 @@
+{
+  "fields" : {
+  "0" : {
+    "tag": “field_1”,
+    "body": "Text one",
+    "size": 1,
+    "field_type": "text"
+  },
+  "10" : {
+    "tag": “field_2”,
+    "body": "Text two",
+    "size": 1,
+    "field_type": "text"
+  },
+  "20" : {
+    "tag": “field_xyz”,
+    "body": "Char one",
+    "size": 2,
+    "field_type": "char_field"
+  },
+  "30" : {
+    "tag": “field_single”,
+    "body": "Single Select Field",
+    "size": 3,
+    "options": [
+      {
+        "label" : "India",
+        "value" : "IN"
+      },
+      {
+        "label" : "US",
+        "value" : "US"
+      },
+      {
+        "label" : "China",
+        "value" : "CN"
+      }]
+      "field_type" : "single_select"
+  },
+  "40" : {
+    "tag": “field_multi”,
+    "body": "Multi Select Field",
+    "size": 3,
+    "options": [
+      {
+        "label" : "Asia",
+        "value" : "Option 1"
+      },
+      {
+        "label" : "Africa",
+        "value" : "Option 2"
+      },
+      {
+        "label" : "Europe",
+        "value" : "Option 3"
+      },
+      {
+        "label" : "North America",
+        "value" : "Option 4"
+      },
+      {
+        "label" : "South America",
+        "value" : "Option 5"
+      },
+      {
+        "label" : "Arctic",
+        "value" : "Option 6"
+      }]
+      "field_type" : "multi_select"
+  },
+  "50" : {
+    "tag": “field_date”,
+    "body": "Age",
+    "size": 1,
+    "field_type": "text"
+  }
+}
+}
