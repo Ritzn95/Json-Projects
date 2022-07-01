@@ -1,0 +1,581 @@
+{
+
+ "1": {
+
+  "tags": "name_2",
+
+  "name": "Academics",
+
+  "steps": {
+
+   "0": {
+
+    "tags": "step_3",
+
+    "name": "Board & Marks",
+
+    "fields": {
+
+     "0": {
+
+      "tag": "field_board",
+
+      "body": "Please select your board",
+
+      "size": 3,
+
+      "options": [
+
+       {
+
+        "labels": "State Board",
+
+        "value": "1"
+
+       },
+
+       {
+
+        "labels": "CBSE",
+
+        "value": "2"
+
+       },
+
+       {
+
+        "label": "ICSE",
+
+        "value": "3"
+
+       }
+
+      ],
+
+      "field_type": "single_select",
+
+      "is_required": true
+
+     },
+
+     "1": {
+
+      "tags": "state_1",
+
+      "body": "Enter your highest marks",
+
+      "size": 2,
+
+      "field_type": "char_field",
+
+      "contraints": {
+
+       "0": {
+
+        "target_field": "state_1",
+
+        "first_compared_field": "field_board",
+
+        "operator": "eq",
+
+        "compare_value": "1",
+
+        "compare_group": 1
+
+       }
+
+      }
+
+     },
+
+     "2": {
+
+      "tags": "cbse_icse",
+
+      "body": "Enter your GPA in decimals",
+
+      "size": 2,
+
+      "field_type": "char_field",
+
+      "contraints": {
+
+       "0": {
+
+        "target_field": "cbse_icse",
+
+        "first_compared_field": "field_board",
+
+        "operator": "nt",
+
+        "compare_value": "1",
+
+        "compare_group": 1
+
+       }
+
+      }
+
+     }
+
+    }
+
+   }
+
+  }
+
+ },
+
+ "stepgroups": {
+
+  "0": {
+
+   "tags": "name_1",
+
+   "name": "Student Details",
+
+   "steps": {
+
+    "0": {
+
+     "tags": "first_step",
+
+     "name": "Personal info",
+
+     "fields": {
+
+      "0": {
+
+       "tag": "field_1",
+
+       "body": "First Name",
+
+       "size": 3,
+
+       "field_type": "text",
+
+       "is_required": true
+
+      },
+
+      "20": {
+
+       "tag": "field_xyz",
+
+       "body": "Last Name",
+
+       "size": 3,
+
+       "field_type": "text",
+
+       "is_required": true
+
+      },
+
+      "30": {
+
+       "tag": "field_sing",
+
+       "body": "Are you above 18?",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "labels": "yes",
+
+         "value": "1"
+
+        },
+
+        {
+
+         "labels": "no",
+
+         "value": "2"
+
+        }
+
+       ],
+
+       "field_type": "single_select",
+
+       "is_required": true
+
+      },
+
+      "40": {
+
+       "50": {
+
+        "tag": "field_check",
+
+        "body": "Enter the check number",
+
+        "size": 1,
+
+        "field_type": "char_field",
+
+        "constraints": {
+
+         "0": {
+
+          "target_field": "field_check",
+
+          "first_compare_field": "field_radio",
+
+          "operator": "eq",
+
+          "compare_vale": "two",
+
+          "compare_group": 1
+
+         }
+
+        }
+
+       },
+
+       "60": {
+
+        "tag": "field_add",
+
+        "body": "Please enter your full residential address",
+
+        "size": 1,
+
+        "field_type": "char_field",
+
+        "contraints": {
+
+         "0": {
+
+          "target_field": "field_add",
+
+          "first_compare_field": "field_sing",
+
+          "operator": "eq",
+
+          "compare_value": "1",
+
+          "compare_group": 1
+
+         }
+
+        }
+
+       },
+
+       "tag": "field_radio",
+
+       "body": "How have you paid hostel fees?",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "labels": "Cash",
+
+         "value": "one"
+
+        },
+
+        {
+
+         "labels": "Check",
+
+         "value": "two"
+
+        }
+
+       ],
+
+       "field_type": "radio",
+
+       "contraints": {
+
+        "0": {
+
+         "target_field": "field_radio",
+
+         "first_compare_field": "field_sing",
+
+         "operator": "eq",
+
+         "compare_value": "2",
+
+         "compare_group": 1
+
+        }
+
+       }
+
+      }
+
+     }
+
+    },
+
+    "1": {
+
+     "tags": "step_2",
+
+     "name": "Course Details",
+
+     "fields": {
+
+      "0": {
+
+       "tag": "field_course",
+
+       "body": "Select your major course",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "labels": "Science",
+
+         "value": "sc"
+
+        },
+
+        {
+
+         "labels": "Commerce",
+
+         "value": "cr"
+
+        },
+
+        {
+
+         "labels": "Arts",
+
+         "value": "as"
+
+        }
+
+       ],
+
+       "field_type": "single_select",
+
+       "is_required": true
+
+      },
+
+      "2": {
+
+       "tag": "multi_1",
+
+       "body": "Select your preferred subjects",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "label": "Physics",
+
+         "value": "ph"
+
+        },
+
+        {
+
+         "label": "Chemistry",
+
+         "value": "ch"
+
+        },
+
+        {
+
+         "label": "Mathematics",
+
+         "value": "mt"
+
+        },
+
+        {
+
+         "label": "Biology",
+
+         "value": "bi"
+
+        }
+
+       ],
+
+       "field_type": "multi_select",
+
+       "constraints": {
+
+        "0": {
+
+         "target_field": "multi_1",
+
+         "first_compare_field": "field_course",
+
+         "operator": "eq",
+
+         "compare_value": "sc",
+
+         "compare_group": 1
+
+        }
+
+       }
+
+      },
+
+      "3": {
+
+       "tag": "multi_2",
+
+       "body": "Select your preferred subjects",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "label": "Accounting",
+
+         "value": "ac"
+
+        },
+
+        {
+
+         "label": "Finance",
+
+         "value": "fi"
+
+        },
+
+        {
+
+         "label": "Economics",
+
+         "value": "es"
+
+        },
+
+        {
+
+         "label": "Advanced Mathematics",
+
+         "value": "am"
+
+        }
+
+       ],
+
+       "field_type": "multi_select",
+
+       "constraints": {
+
+        "0": {
+
+         "target_field": "multi_2",
+
+         "first_compare_field": "field_course",
+
+         "operator": "eq",
+
+         "compare_value": "cr",
+
+         "compare_group": 1
+
+        }
+
+       }
+
+      },
+
+      "4": {
+
+       "tag": "multi_3",
+
+       "body": "Select your preferred subjects",
+
+       "size": 3,
+
+       "options": [
+
+        {
+
+         "label": "Literature",
+
+         "value": "li"
+
+        },
+
+        {
+
+         "label": "Poetry",
+
+         "value": "py"
+
+        },
+
+        {
+
+         "label": "Formal Writing",
+
+         "value": "fw"
+
+        },
+
+        {
+
+         "label": "Journalism",
+
+         "value": "jm"
+
+        }
+
+       ],
+
+       "field_type": "multi_select",
+
+       "constraints": {
+
+        "0": {
+
+         "target_field": "multi_3",
+
+         "first_compare_field": "field_course",
+
+         "operator": "eq",
+
+         "compare_value": "as",
+
+         "compare_group": 1
+
+        }
+
+       }
+
+      }
+
+     }
+
+    }
+
+   }
+
+  }
+
+ }
+
+}
