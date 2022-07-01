@@ -1,0 +1,237 @@
+{
+ "stepgroups" :{
+   "0":{
+     "tags": "phase_1",
+     "name": "INITIATE",
+     "steps":{
+       "0":{
+         "tags":"first_step",
+         "name": "Request Details",
+         "fields" : {
+  "0" : {
+    "tag": "field_1",
+    "body": "Enter the name of the supplier",
+    "size": 3,
+    "field_type": "char_field",
+    "is_required": true
+  },
+  "10" : {
+    "tag": "field_2",
+    "body": "Enter the website Url",
+    "size": 2,
+    "field_type": "url"
+  },
+   "20": {
+   "tag": "field_3",
+   "body": "Describe the business of your company",
+   "size": 1,
+   "field_type": "text"
+  },
+  "30":{
+    "tag": "field_phone",
+    "body": "Contact Number",
+    "size": 3,
+    "field_type": "phone"
+      },
+      "40":{
+        "tag": "field_email",
+        "body": "Please enter the email of the point of contact",
+        "size" : 2,
+        "field_type": "email",
+        "is_required": true
+      }
+       }
+     }
+   }
+  },
+   "1": {
+     "tags": "phase_2",
+     "name": "SUPPLIER INFORMATION",
+     "steps":{
+       "0":{
+     "tags" : "step_2",
+     "name" : "Contact Information",
+     "fields":{
+       "0": {
+   "tag": "field_add",
+   "body": "Address Details",
+   "size": 2,
+   "field_type": "text"
+     },
+     "1": {
+   "tag": "field_state",
+   "body": "State",
+   "size": 3,
+   "field_type": "text"
+  },
+  "2": {
+   "tag": "field_city",
+   "body": "City",
+   "size": 3,
+   "field_type": "text"
+  },
+  "3": {
+   "tag": "field_code",
+   "body": "Pin Code",
+   "size": 3,
+   "field_type": "integer"
+  },
+  "4": {
+   "tag": "field_con",
+   "body": "Country",
+   "size": 3,
+   "field_type": "text"
+  },
+  "5": {
+   "tag": "field_emp",
+   "body": "Exact number of employees",
+   "size": 3,
+   "field_type": "integer"
+  },
+  "6":{
+    "tag": "field_file",
+    "body": "Please upload your company invitation letter here",
+    "size": 3,
+    "field_type": "file"
+  }
+     }
+     },
+     "1":{
+       "tags": "step_3",
+       "name": "Please select the payment type",
+       "fields":{
+     "0": {
+   "tag": "multi_1",
+   "body": "Select your preferred subjects",
+   "size": 3,
+   "options": [
+    {
+     "label": "EFT",
+     "value": "et"
+    },
+    {
+     "label": "Check",
+     "value": "ch"
+    }],
+   "field_type": "single_select"
+    },
+    "1":{
+    "tags": "bank_name",
+    "body": "Bank Name",
+    "size": 3,
+    "field_type": "text",
+    "constraints": {
+    "0": {
+     "target_field": "bank_name",
+     "first_compare_field": "multi_1",
+     "operator": "eq",
+     "compare_value": "et",
+     "compare_group": 1
+   }
+  }},
+  "2":{
+    "tags": "bank_code",
+    "name": "Bank Code",
+    "size": 3,
+    "field_type": "char_field",
+    "constraints": {
+    "0": {
+     "target_field": "bank_code",
+     "first_compare_field": "multi_1",
+     "operator": "eq",
+     "compare_value": "et",
+     "compare_group": 1
+  }
+ 
+    }
+  },
+ 
+  "3":{
+    "tags": "bank_accno",
+    "body": "Bank Account Number",
+    "size": 2,
+    "field_type": "integer",
+    "constraints": {
+    "0": {
+     "target_field": "bank_accno",
+     "first_compare_field": "multi_1",
+     "operator": "eq",
+     "compare_value": "et",
+     "compare_group": 1
+    }
+  }
+  },
+  "4":{
+    "tags": "swift_code",
+    "body": "Swift Code",
+    "size": 3,
+    "constraints": {
+    "0": {
+     "target_field": "",
+     "first_compare_field": "multi_1",
+     "operator": "eq",
+     "compare_value": "st",
+     "compare_group": 1
+    }
+    },
+    "field_type":"char_field"
+  },
+  "5":{
+    "tags": "field_end",
+    "body": "Thank you! Someone from the Accounts Payable team will get in touch with you for this!",
+    "size": 1,
+    "constraints": {
+    "0": {
+     "target_field": "field_end",
+     "first_compare_field": "multi_1",
+     "operator": "eq",
+     "compare_value": "ch",
+     "compare_group": 1
+    },
+    "field_type": "text"
+  }
+  }
+  }
+  },
+  "3": {
+    "tags": "phase_3",
+    "name": "COMPLIANCE",
+    "steps":{
+      "0":{
+        "tags": "supplier_check",
+        "name":"Prohibited Supplier Check",
+        "fields":{
+          "0":
+          {
+            "tags": "world_delist",
+            "name": "Is the supplier flagged in World Debarment list?",
+            "size": 3,
+            "options":[
+              {
+                "label": "yes",
+                "value": "1"
+              },
+              {
+                "label": "no",
+                "value": "2"
+              }],
+            "field_type": "single_select"
+          },
+          "1":{
+            "tags": "field_bool",
+            "name": "Is the supplier listed as PROHIBITED?",
+            "size": 3,
+            "contraints": {
+              "target_field": "field_bool",
+              "first_compare_field": "world_delist",
+              "operator": "eq",
+              "compare_value": "2",
+              "compare_group": 1
+            },
+            "field_type": "bool"
+          }
+        }
+       
+      }
+    }
+   }
